@@ -379,7 +379,54 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>Source Group 1</GroupName>
+          <GroupName>include</GroupName>
+          <Files>
+            <File>
+              <FileName>os.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\include\OS\os.h</FilePath>
+            </File>
+            <File>
+              <FileName>Process.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\include\OS\Process.h</FilePath>
+            </File>
+            <File>
+              <FileName>Queues.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\include\OS\Queues.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>OS</GroupName>
+          <Files>
+            <File>
+              <FileName>process.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\OS\process.c</FilePath>
+            </File>
+            <File>
+              <FileName>Queues.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\OS\Queues.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>processor_specific</GroupName>
+          <Files>
+            <File>
+              <FileName>context_switch.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\processor_Specific\context_switch.s</FilePath>
+            </File>
+            <File>
+              <FileName>synchronization_asm.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\processor_Specific\synchronization_asm.s</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>
