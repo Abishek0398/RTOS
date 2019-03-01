@@ -1,6 +1,6 @@
-#include "Process.h"
-#include "Queues.h"
-#include "os.h"
+#include <OS/Process.h>
+#include <OS/Queues.h>
+#include <OS/os.h>
 void os_task_create(void(*fun_ptr)(),uint32_t *stack_base,uint32_t stack_size,uint32_t priority)
 {
 	struct tcb temp;

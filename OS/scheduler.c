@@ -1,6 +1,6 @@
-#include "Process.h"
-#include "Queues.h"
-#include "os.h"
+#include <OS/Process.h>
+#include <OS/Queues.h>
+#include <OS/os.h>
 void scheduler()
 {
 	start_critical();

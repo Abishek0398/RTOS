@@ -1,5 +1,5 @@
-#include "Queues.h"
-#include "os.h"
+#include <OS/Queues.h>
+#include <OS/os.h>
 struct tcb *ready_queue_head=NULL;
 void add_ready_queue(struct tcb *temp_pt)
 {
@@ -8,6 +8,7 @@ void add_ready_queue(struct tcb *temp_pt)
 	{
 		new_high_tcb=temp_pt;
 		context_switch();
+		end_critical();
 	}
 	else if(temp==NULL)
 	{
@@ -38,5 +39,18 @@ void add_ready_queue(struct tcb *temp_pt)
 		   temp_pt->next=temp;
 		   temp_pt->prev=temp->prev;
 		}
+	}
+}
+void add_queue(struct tcb **head,struct tcb *temp_pt)
+{
+	if((*head)==NULL)
+	{
+		*head=temp_pt;
+	}
+	else
+	{
+	   temp_pt->next=*head;
+	   (*head)->prev=temp_pt;
+	   *head=temp_pt;
 	}
 }

@@ -26,7 +26,7 @@ PendSV_Handler PROC
     MOV32   R1, new_high_tcb                                 ; OSTCBCurPtr = OSTCBHighRdyPtr;
     LDR     R2, [R1]
     STR     R2, [R5]
-
+    ORR     LR, R4, #0xF4
     LDR     R0, [R2]                                            ; R0 is new process SP; SP = OSTCBHighRdyPtr->StkPtr;
     LDMFD   R0!, {R4-R11}                                       ; Restore r4-11 from new process stack
     MSR     PSP, R0                                             ; Load PSP with new process SP

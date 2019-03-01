@@ -7,6 +7,7 @@
 #define BLOCKED 3
 #include <stdint.h>
 extern void context_switch(void);
+extern void scheduler();
 extern struct tcb *new_high_tcb;
 extern struct tcb *current_tcb;
 extern uint32_t counter;
