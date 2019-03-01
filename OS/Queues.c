@@ -4,7 +4,7 @@ struct tcb *ready_queue_head=NULL;
 void add_ready_queue(struct tcb *temp_pt)
 {
 	struct tcb *temp=ready_queue_head;
-	if(temp_pt->priority < current_tcb->priority)
+	if(temp_pt->priority < current_tcb->priority && start_flag==1)
 	{
 		new_high_tcb=temp_pt;
 		context_switch();

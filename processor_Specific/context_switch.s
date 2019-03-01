@@ -3,6 +3,39 @@
     AREA    |.text|, CODE, READONLY
 	EXTERN current_tcb
 	EXTERN new_high_tcb
+ os_first_task PROC
+	EXPORT os_first_task
+    CPSID   I                                                   
+    MOV32   R0, =0xE000ED22                                  
+    MOV32   R1, =0xFF
+    STRB    R1, [R0]
+
+    MOV32   R0, OSPrioCur                                       
+    MOV32   R1, OSPrioHighRdy
+    LDRB    R2, [R1]
+    STRB    R2, [R0]
+
+    MOV32   R5, OSTCBCurPtr
+    MOV32   R1, OSTCBHighRdyPtr                                 
+    LDR     R2, [R1]
+    STR     R2, [R5]
+
+    LDR     R0, [R2]                                            
+    MSR     PSP, R0                                             
+
+    MRS     R0, CONTROL
+    ORR     R0, R0, #2
+    MSR     CONTROL, R0
+    ISB                                                         
+
+    LDMFD    SP!, {R4-R11}                                      
+    LDMFD    SP!, {R0-R3}                                       
+    LDMFD    SP!, {R12, LR}                                     
+    LDMFD    SP!, {R1, R2}                                      
+    CPSIE    I
+    BX       R1
+	ENDP
+		
 context_switch PROC
 	EXPORT context_switch
     LDR     R0, =0xE000ED04
