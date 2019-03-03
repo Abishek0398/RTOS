@@ -54,3 +54,14 @@ void add_queue(struct tcb **head,struct tcb *temp_pt)
 	   *head=temp_pt;
 	}
 }
+void delete_head(struct tcb **head)
+{
+	if((*head)==NULL)
+	{
+		return;
+	}
+	struct tcb *temp=(*head)->next;
+	(*head)->next->prev=NULL;
+	(*head)->next=NULL;
+	(*head)=temp;
+}
