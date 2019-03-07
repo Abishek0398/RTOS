@@ -13,7 +13,8 @@ extern void os_init();
 extern void os_first_task();
 extern struct tcb *new_high_tcb;
 extern struct tcb *current_tcb;
-extern uint32_t counter;
+//extern uint32_t counter;
 extern void start_critical();
 extern void end_critical();
+void os_start(void);
 #endif
