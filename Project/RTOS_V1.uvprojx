@@ -427,14 +427,14 @@
           <GroupName>processor_specific</GroupName>
           <Files>
             <File>
-              <FileName>context_switch.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\processor_Specific\context_switch.s</FilePath>
-            </File>
-            <File>
               <FileName>synchronization_asm.s</FileName>
               <FileType>2</FileType>
               <FilePath>..\processor_Specific\synchronization_asm.s</FilePath>
+            </File>
+            <File>
+              <FileName>context_switch.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\processor_Specific\context_switch.s</FilePath>
             </File>
           </Files>
         </Group>

@@ -3,20 +3,15 @@
     AREA    |.text|, CODE, READONLY
 	EXTERN current_tcb
 	EXTERN new_high_tcb
- os_first_task PROC
+os_first_task PROC
 	EXPORT os_first_task
     CPSID   I                                                   
-    MOV32   R0, =0xE000ED22                                  
-    MOV32   R1, =0xFF
+    LDR   R0, =0xE000ED22                                  
+    LDR   R1, =0xFF
     STRB    R1, [R0]
 
-    MOV32   R0, OSPrioCur                                       
-    MOV32   R1, OSPrioHighRdy
-    LDRB    R2, [R1]
-    STRB    R2, [R0]
-
-    MOV32   R5, OSTCBCurPtr
-    MOV32   R1, OSTCBHighRdyPtr                                 
+    MOV32   R5, current_tcb
+    MOV32   R1, new_high_tcb                                 
     LDR     R2, [R1]
     STR     R2, [R5]
 
@@ -35,6 +30,7 @@
     CPSIE    I
     BX       R1
 	ENDP
+
 		
 context_switch PROC
 	EXPORT context_switch
@@ -59,13 +55,11 @@ PendSV_Handler PROC
     MOV32   R1, new_high_tcb                                 ; OSTCBCurPtr = OSTCBHighRdyPtr;
     LDR     R2, [R1]
     STR     R2, [R5]
-    ORR     LR, R4, #0xF4
     LDR     R0, [R2]                                            ; R0 is new process SP; SP = OSTCBHighRdyPtr->StkPtr;
     LDMFD   R0!, {R4-R11}                                       ; Restore r4-11 from new process stack
     MSR     PSP, R0                                             ; Load PSP with new process SP
     CPSIE   I
     BX      LR 
     ENDP	
-
     END
 
