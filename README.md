@@ -6,7 +6,7 @@ processes in complex embedded systems. Synchronization primitives like semaphore
 The Kernel is developed to be highly portable with minimal processor specific code.
 
 Further information regarding the kernel can be found in the pdf linked below.
-           https://drive.google.com/file/d/1pQBJ9RPU2pcw9ahSNhtHSXkG6u7cOH3S/view?usp=sharing
+           https://drive.google.com/open?id=1L1_GFqaiwifaDWUzNXCS7j3FqfbRKupw
            
  (This is not the full documentation of the kernel. Documentation development is still in progrss)          
 
