@@ -5,12 +5,11 @@ processors with priority based preemptive scheduling which can be used to effici
 processes in complex embedded systems. Synchronization primitives like semaphore and mutex are implemented to avoid race conditions among processes during resource aquisition.
 The Kernel is developed to be highly portable with minimal processor specific code.
 
-Further information regarding the kernel can be found in the pdf linked below.
-           
-           https://drive.google.com/open?id=1L1_GFqaiwifaDWUzNXCS7j3FqfbRKupw
+Further information regarding the kernel can be found in the pdf linked below.                          
+https://drive.google.com/open?id=1L1_GFqaiwifaDWUzNXCS7j3FqfbRKupw
            
  (This is not the full documentation of the kernel. Documentation development is still in progrss)          
 
 # Execution:
 
-To see the kernel working you can open the project in Keil IDE and start a debug session using the simulator. By stepping through the code you can see the tasks getting executed based on their priority
+To see the kernel working you can open the project in Keil IDE and start a debug session using the simulator. By stepping through the code you can see the tasks getting executed based on their prior
