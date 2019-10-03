@@ -1,11 +1,22 @@
-#include <OS/Process.h>
-#include <OS/Queues.h>
+#include <OS/tasks.h>
 #include <OS/os.h>
-void scheduler()
+void os_scheduler()
 {
-	start_critical();
-	new_high_tcb=ready_queue_head;
-	delete_head(&ready_queue_head);
-	context_switch();
-	end_critical();
+	os_start_critical();
+	os_remove_ready_list(current_tcb);
+	uint8_t high_priority;
+	high_priority= os_get_highest_priority();
+	new_high_tcb=os_tcb_lut[high_priority];
+	if(current_tcb == new_high_tcb)
+	{
+		os_end_critical();
+		return;
+	}
+	else if(current_tcb->task_state == RUNNING)
+	{
+		current_tcb->task_state = READY;
+	}
+	new_high_tcb->task_state = RUNNING;
+	os_context_switch();
+	os_end_critical();
 }
