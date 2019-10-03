@@ -7,3 +7,9 @@ The Kernel is developed to be highly portable with minimal processor specific co
 
 Further information regarding the kernel can be found in the pdf linked below.
            https://drive.google.com/file/d/1pQBJ9RPU2pcw9ahSNhtHSXkG6u7cOH3S/view?usp=sharing
+           
+ (This is not the full documentation of the kernel. Documentation development is still in progrss)          
+
+# Execution:
+
+To see the kernel working you can open the project in Keil IDE and start a debug session using the simulator. By stepping through the code you can see the tasks getting executed based on their priority
